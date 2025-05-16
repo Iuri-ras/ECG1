@@ -45,7 +45,7 @@ if st.button("Load Sample Data"):
     st.pyplot(fig)
 
     # QRS Visibility Comment
-    st.markdown("**QRS Visibility Improved:** The high-frequency noise and baseline drift have been filtered out, making the QRS complex more prominent and clearer to analyze.")""
+    st.markdown("**QRS Visibility Improved:** The high-frequency noise and baseline drift have been filtered out, making the QRS complex more prominent and clearer to analyze.")
 
 
 uploaded_file = st.file_uploader("Choose a CSV file", type="csv")
