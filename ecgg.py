@@ -62,6 +62,7 @@ def custom_bandpass_filter(data, lowcut, highcut, fs):
     filtered_signal = np.fft.ifft(filtered_fft_data).real
     return filtered_signal
 
+
 uploaded_file = st.file_uploader("Choose a CSV file", type="csv")
 
 
@@ -77,6 +78,7 @@ def custom_bandpass_filter(data, lowcut, highcut, fs):
     # Inverse FFT to get the filtered time-domain signal
     filtered_signal = np.fft.ifft(filtered_fft_data).real
     return filtered_signal
+
 
 # Main Logic
 if uploaded_file:
