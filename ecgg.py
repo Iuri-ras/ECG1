@@ -6,6 +6,8 @@ import matplotlib.pyplot as plt
 # Streamlit App Configuration
 st.title("ECG Signal Filtering Application")
 st.markdown("Upload your **ECG CSV file** to apply Bandpass Filtering (0.5 - 40 Hz)")
+st.markdown("[Click here to download a sample ECG dataset from Kaggle](https://www.kaggle.com/datasets/shayanfazeli/heartbeat)")
+st.markdown("[Click here to explore PhysioNet ECG Datasets](https://physionet.org/about/database/)")
 
 # File Upload
 uploaded_file = st.file_uploader("Choose a CSV file", type="csv")
