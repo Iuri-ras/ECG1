@@ -49,6 +49,19 @@ if st.button("Load Sample Data"):
 
 
 # Define Custom Bandpass Filter
+def custom_bandpass_filter(data, lowcut, highcut, fs):
+    fft_data = np.fft.fft(data)
+    frequencies = np.fft.fftfreq(len(data), d=1/fs)
+
+    # Create a mask for frequencies within the bandpass range
+    mask = (frequencies > lowcut) & (frequencies < highcut)
+    filtered_fft_data = np.zeros_like(fft_data)
+    filtered_fft_data[mask] = fft_data[mask]
+
+    # Inverse FFT to get the filtered time-domain signal
+    filtered_signal = np.fft.ifft(filtered_fft_data).real
+    return filtered_signal
+
 
 
 
