@@ -9,7 +9,7 @@ st.markdown("Upload your **ECG CSV file** to apply Bandpass Filtering (0.5 - 40 
 st.markdown("[Click here to download a sample ECG dataset from Kaggle](https://www.kaggle.com/datasets/shayanfazeli/heartbeat)")
 st.markdown("[Click here to explore PhysioNet ECG Datasets](https://physionet.org/about/database/)")
 
-""# File Upload
+# File Upload
 st.markdown("### Or use a sample ECG Data")
 if st.button("Load Sample Data"):
     sample_data = {
@@ -46,6 +46,8 @@ if st.button("Load Sample Data"):
 
     # QRS Visibility Comment
     st.markdown("**QRS Visibility Improved:** The high-frequency noise and baseline drift have been filtered out, making the QRS complex more prominent and clearer to analyze.")""
+
+
 uploaded_file = st.file_uploader("Choose a CSV file", type="csv")
 
 # Define Custom Bandpass Filter
