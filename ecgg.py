@@ -9,7 +9,43 @@ st.markdown("Upload your **ECG CSV file** to apply Bandpass Filtering (0.5 - 40 
 st.markdown("[Click here to download a sample ECG dataset from Kaggle](https://www.kaggle.com/datasets/shayanfazeli/heartbeat)")
 st.markdown("[Click here to explore PhysioNet ECG Datasets](https://physionet.org/about/database/)")
 
-# File Upload
+""# File Upload
+st.markdown("### Or use a sample ECG Data")
+if st.button("Load Sample Data"):
+    sample_data = {
+        'Time': np.linspace(0, 10, 2500),
+        'ECG Signal': np.sin(2 * np.pi * 1 * np.linspace(0, 10, 2500)) + 0.5 * np.random.randn(2500)
+    }
+    df = pd.DataFrame(sample_data)
+    st.write(df.head())
+    
+    # Plot Original Signal
+    time = df['Time']
+    ecg_signal = df['ECG Signal']
+    
+    fig, ax = plt.subplots()
+    ax.plot(time, ecg_signal, label='Original Signal (Sample Data)')
+    ax.set_title("Original ECG Signal - Sample Data")
+    ax.set_xlabel("Time (s)")
+    ax.set_ylabel("Amplitude")
+    plt.legend()
+    st.pyplot(fig)
+    
+    # Apply Bandpass Filter (0.5 to 40 Hz)
+    filtered_signal = custom_bandpass_filter(ecg_signal, 0.5, 40, fs=250)
+
+    # Plot Filtered Signal
+    st.markdown("### Filtered Signal (Sample Data)")
+    fig, ax = plt.subplots()
+    ax.plot(time, filtered_signal, color='orange', label='Filtered Signal')
+    ax.set_title("Filtered ECG Signal - Sample Data")
+    ax.set_xlabel("Time (s)")
+    ax.set_ylabel("Amplitude")
+    plt.legend()
+    st.pyplot(fig)
+
+    # QRS Visibility Comment
+    st.markdown("**QRS Visibility Improved:** The high-frequency noise and baseline drift have been filtered out, making the QRS complex more prominent and clearer to analyze.")""
 uploaded_file = st.file_uploader("Choose a CSV file", type="csv")
 
 # Define Custom Bandpass Filter
