@@ -53,7 +53,7 @@ if uploaded_file is not None:
     # Plot Filtered Signal
     st.subheader("Filtered ECG Signal")
     fig2, ax2 = plt.subplots()
-    ax2.plot(time, filtered_signal, label="Filtered Signal", color='orange')
+    ax2.plot(time, filtered_signal, label="Filtered Signal", color='green')
     ax2.set_xlabel("Time (s)")
     ax2.set_ylabel("Amplitude")
     ax2.legend()
