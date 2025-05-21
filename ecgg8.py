@@ -88,7 +88,7 @@ if df is not None:
 
     # Comment on QRS visibility
     st.markdown(
-        "<div style='background-color:#DFF2BF; padding: 10px; border-radius: 5px;'>"
+        "<div style='background-color:#4CAF50; padding: 10px; border-radius: 5px;'>"
         "<strong>QRS Visibility Improved:</strong> The filtering reduces noise and baseline drift, "
         "making the QRS complex clearer for analysis."
         "</div>", unsafe_allow_html=True
